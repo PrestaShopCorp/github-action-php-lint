@@ -37,12 +37,12 @@ By default the script will look for all PHP files in the project. You may want t
 
 In this example, we exclude the folder `tools/` from the search:
 
-```
+```diff
 workflow "Code Quality" {
   on = "push"
   resolves = [
     "PHP 5.6 Syntax check",
-    "PHP 7.3 Syntax check",
+    "PHP 7.2 Syntax check",
   ]
 }
 
