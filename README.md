@@ -26,6 +26,6 @@ steps:
       folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
 ```
 
-The action ignore the folder `vendor` at root of project by default.
+The action ignores the folder `vendor` at root of project by default.
 
 In this example, your workflow will run the PHP syntax check with PHP 5.6, 7.2 & 7.3.
