@@ -1,0 +1,49 @@
+name: 'Prestashop PHP Linter Router'
+description: 'PHP linter router'
+inputs:
+  php-version:
+    description: 'Your target PHP version'
+    required: true
+  folder-to-exclude:
+    description: 'Folder to exclude'
+    required: false
+    default: '! -path "./vendor/*"'
+runs:
+  using: "composite"
+  steps:
+    - uses: "prestashop/github-action-php-lint/5.4"
+      if: ${{ inputs.php-version == '5.4 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/5.5"
+      if: ${{ inputs.php-version == '5.5 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/5.6"
+      if: ${{ inputs.php-version == '5.6 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/7.1"
+      if: ${{ inputs.php-version == '7.1 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/7.2"
+      if: ${{ inputs.php-version == '7.2 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/7.3"
+      if: ${{ inputs.php-version == '7.3 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/7.4"
+      if: ${{ inputs.php-version == '7.4 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/8.0"
+      if: ${{ inputs.php-version == '8.0 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
+    - uses: "prestashop/github-action-php-lint/8.1"
+      if: ${{ inputs.php-version == '8.1 '}}
+      with:
+        folder-to-exclude: ${{ inputs.folder-to-exclude }}
