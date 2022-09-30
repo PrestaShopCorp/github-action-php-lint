@@ -1,29 +1,28 @@
-# GitHub Action for PHP syntax check
+# GitHub Action for PHP syntax checking
 
 This actions runs `php -l` on all PHP files found in the current project.
 
 ## Getting Started
 
-Using this action can be done with this template:
+Use this action like:
 
-```
-steps:
-  - name: Checkout
-    uses: actions/checkout@v1
-    with:
-      fetch-depth: 0
-  - name: PHP syntax checker 7.2
-    uses: prestashop/github-action-php-lint/7.2@v1
-    with:
-      folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
-  - name: PHP syntax checker 7.3
-    uses: prestashop/github-action-php-lint/7.3@v1
-    with:
-      folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
-  - name: PHP syntax checker 5.6
-    uses: prestashop/github-action-php-lint/5.6@v1
-    with:
-      folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
+```yaml
+jobs:
+  php-linter:
+    name: PHP syntax checking
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php_version: ["5.6", "7.2", "7.3"]
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2.0.0
+
+      - name: PHP syntax checker ${{ matrix.php_version }}
+        uses: "prestashop/github-action-php-lint@master"
+        with:
+          php-version: ${{ matrix.php_version }}
+          folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
 ```
 
 The action ignores the folder `vendor` at root of project by default.
