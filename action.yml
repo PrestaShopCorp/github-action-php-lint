@@ -1,0 +1,19 @@
+name: 'Prestashop PHP Linter Router'
+description: 'PHP linter router'
+inputs:
+  php-version:
+    description: 'Your target PHP version'
+    required: true
+  folder-to-exclude:
+    description: 'Folder to exclude'
+    required: false
+    default: '! -path "./vendor/*"'
+runs:
+  using: 'composite'
+  steps:
+    - name: "Lint with php ${{ inputs.php-version }}"
+      shell: bash
+      run: |
+        echo "Pulled docker image: $(docker pull --quiet php:${{ inputs.php-version }})"
+        docker run --rm --entrypoint /bin/sh php:${{ inputs.php-version }} -c "! (find . -type f -name \"*.php\" ${{ inputs.folder-to-exclude }} -exec php -l -n {} \; | grep -v \"No syntax errors detected\")"
+        echo "No syntax error detected"
