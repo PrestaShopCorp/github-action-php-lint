@@ -1,13 +1,18 @@
 # action.yml
-name: 'Prestashop PHP 8.1 Linter'
-description: 'PHP linter for 8.1'
+name: "Prestashop PHP 8.1 Linter"
+description: "PHP linter for 8.1"
 inputs:
   folder-to-exclude:
-    description: 'Folder to exclude'
+    description: "Folder to exclude"
     required: false
     default: '! -path "./vendor/*"'
+  working-directory:
+    description: "Working directory"
+    required: false
+    default: "./"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.folder-to-exclude }}
+    - ${{ inputs.working-directory }}
