@@ -14,5 +14,5 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.folder-to-exclude }}
     - ${{ inputs.working-directory }}
+    - ${{ inputs.folder-to-exclude }}
