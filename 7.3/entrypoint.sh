@@ -1,3 +1,5 @@
 #!/bin/sh -l
 
-sh -c "! (find . -type f -name \"*.php\" $1 -exec php -l -n {} \; | grep -v \"No syntax errors detected\")"
+cd $1
+
+sh -c "! (find . -type f -name \"*.php\" $2 -exec php -l -n {} \; | grep -v \"No syntax errors detected\")"
