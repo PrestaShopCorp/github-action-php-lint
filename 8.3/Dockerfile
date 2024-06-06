@@ -1,4 +1,4 @@
-FROM php:8.2
+FROM php:8.3
 
 LABEL "com.github.actions.name"="PHP Syntax check"
 LABEL "com.github.actions.description"="Run the native PHP linter"
