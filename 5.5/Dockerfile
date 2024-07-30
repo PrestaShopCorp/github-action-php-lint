@@ -5,7 +5,7 @@ LABEL "com.github.actions.description"="Run the native PHP linter"
 LABEL "com.github.actions.icon"="check"
 LABEL "com.github.actions.color"="blue"
 
-LABEL "repository"="http://github.com/PrestaShop/github-action-php-lint"
+LABEL "repository"="http://github.com/PrestaShopCorp/github-action-php-lint"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="PrestaShop <contact@prestashop.com>"
 

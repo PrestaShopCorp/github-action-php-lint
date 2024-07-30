@@ -13,15 +13,15 @@ steps:
     with:
       fetch-depth: 0
   - name: PHP syntax checker 7.2
-    uses: prestashop/github-action-php-lint/7.2@v1
+    uses: PrestaShopCorp/github-action-php-lint/7.2@v1
     with:
       folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
   - name: PHP syntax checker 7.3
-    uses: prestashop/github-action-php-lint/7.3@v1
+    uses: PrestaShopCorp/github-action-php-lint/7.3@v1
     with:
       folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
   - name: PHP syntax checker 5.6
-    uses: prestashop/github-action-php-lint/5.6@v1
+    uses: PrestaShopCorp/github-action-php-lint/5.6@v1
     with:
       folder-to-exclude: "! -path \"./vendor/*\" ! -path \"./customer/folder/excluded/*\""
 ```
